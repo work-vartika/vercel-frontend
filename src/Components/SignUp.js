@@ -17,7 +17,7 @@ const SignUp = () => {
     };
 
     axios
-      .post("https://vercel-backend-five-flax.vercel.app/register", userData)
+      .post("https://vercel-backend-five-flax.vercel.app/user/register", userData)
       .then((response) => {
         console.log("user registered", response.data);
       })
