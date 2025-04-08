@@ -19,7 +19,7 @@ const LoginPage = () => {
     }
 
     axios
-      .post("http://localhost:8080/user/login", { email, password })
+      .post("https://vercel-backend-five-flax.vercel.app/login", { email, password })
       .then((res) => {
         console.log(res.data);
         // localStorage.setItem("token",res.data.token)
