@@ -1,0 +1,18 @@
+#header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    padding-left: 30px;
+    background: rgb(141, 200, 222);
+}
+#btn{
+    background:black;
+    width: 100px;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+   
+}
