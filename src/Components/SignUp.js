@@ -2,29 +2,28 @@ import { NavLink } from "react-router-dom";
 import "./signup.css";
 import { useState } from "react";
 import axios from "axios";
+import { backend_URL } from "./server";
 
 const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const signUp = (e) => {
+  const register = async(e) => {
     e.preventDefault(); // Prevent default form submission
     const userData = {
       name: name,
       email: email,
       password: password,
     };
-
-    axios
-      .post("https://vercel-backend-five-flax.vercel.app/user/register", userData)
-      .then((response) => {
-        console.log("user registered", response.data);
-      })
-      .catch((e) => {
+      try{
+        const res=await axios
+        .post(`${backend_URL}/user/register`, userData)
+        console.log(res.data);
+        
+      }catch(e){
         console.log(e);
-      });
-
+      }
     setName("");
     setEmail("");
     setPassword("");
@@ -67,7 +66,7 @@ const SignUp = () => {
           />
         </div>
 
-        <button onClick={signUp}>Sign Up</button>
+        <button onClick={register}>Sign Up</button>
       </form>
       <span>
         Already have an account? <NavLink to="/login">Login</NavLink>

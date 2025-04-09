@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
+import { backend_URL } from "./server";
+
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -12,14 +14,14 @@ const LoginPage = () => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent default form submission
-
+// axios.defaults.withCredentials=true;
     if (email === "" || password === "") {
       setError("Both fields are required");
       return;
     }
 
     axios
-      .post("https://vercel-backend-five-flax.vercel.app/user/login", { email, password })
+      .post(`${backend_URL}/user/login`, { email, password })
       .then((res) => {
         console.log(res.data);
         // localStorage.setItem("token",res.data.token)
